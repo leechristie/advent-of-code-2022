@@ -127,3 +127,15 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# macOS
+.DS_Store
+
+# Advent of Code data files
+data/
+
+# ignoring DataSpell directory
+.idea/
+
+# not uploading day 3 yet
+day03.ipynb
