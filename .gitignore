@@ -136,6 +136,3 @@ data/
 
 # ignoring DataSpell directory
 .idea/
-
-# not uploading day 3 yet
-day03.ipynb
