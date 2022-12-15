@@ -16,3 +16,4 @@ My Python solutions to Eric Wastl's "Advent of Code" 2022.
 * [Day 12: Hill Climbing Algorithm](day12.ipynb)
 * [Day 13: Distress Signal](day13.ipynb)
 * [Day 14: Regolith Reservoir](day14.ipynb)
+* [Day 15: Beacon Exclusion Zone](day15.ipynb)
