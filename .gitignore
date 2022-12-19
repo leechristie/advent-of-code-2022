@@ -136,3 +136,5 @@ data/
 
 # ignoring DataSpell directory
 .idea/
+
+day19/out/
