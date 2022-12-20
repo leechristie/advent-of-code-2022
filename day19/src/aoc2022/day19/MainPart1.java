@@ -60,7 +60,7 @@ public class MainPart1 {
         assert MAX_PLAN_LENGTH < TIME_LIMIT;
 
         System.out.println("Testing function");
-        Simulation test = new Simulation(blueprints.get(0), 24);
+        Simulation test = new Simulation(blueprints.get(0), TIME_LIMIT);
         test.runVersion1(new int[] {});
         System.out.println("Done testing");
 
@@ -69,7 +69,7 @@ public class MainPart1 {
         Queue<Task> queue = new ArrayBlockingQueue<>(numTasks);
         for (int length = 0; length <= MAX_PLAN_LENGTH; length++) {
             for (Blueprint blueprint: blueprints) {
-                Simulation simulation = new Simulation(blueprint, 24);
+                Simulation simulation = new Simulation(blueprint, TIME_LIMIT);
                 queue.offer(new Task(simulation, length));
             }
         }

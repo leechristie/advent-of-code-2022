@@ -446,10 +446,17 @@ public final class Simulation {
     }
 
     public int runAllVersion1(int length) {
+        if (length < 3) {
+            return FAIL;
+        }
         if (length < 0 || length >= timeLimit) {
             throw new IllegalArgumentException("length = " + length + ", expected [0, " + timeLimit + ")");
         }
         int[] plan = new int[length];
+        Arrays.fill(plan, 3);
+        plan[0] = 1;
+        plan[1] = 2;
+        plan[plan.length-1] = 3;
         int bestGeodes = FAIL;
         boolean hasNext;
         do {
@@ -460,15 +467,15 @@ public final class Simulation {
                 bestGeodes = geodes1;
             }
 
-            // base 4 counter [0, 0, ..., 0] to [3, 3, ..., 3] then exits do-while by not setting hasNext
+            // base 4 counter [1, 2, 3, 3, ..., 3] to [0, 0, 0, 0, ..., 0] then exits do-while by not setting hasNext
             hasNext = false;
-            for (int i = 0; i < plan.length; i++) {
-                if (plan[i] < 3) {
-                    plan[i]++;
+            for (int i = plan.length - 2; i >= 0; i--) {
+                if (plan[i] > 0) {
+                    plan[i]--;
                     hasNext = true;
                     break;
                 }
-                plan[i] = 0;
+                plan[i] = 3;
             }
 
         } while (hasNext);
@@ -477,77 +484,10 @@ public final class Simulation {
 
     }
 
-    public int runAllVersion2(int length) {
-        if (length < 0 || length >= timeLimit) {
-            throw new IllegalArgumentException("length = " + length + ", expected [0, " + timeLimit + ")");
-        }
-        int[] plan = new int[length];
-        int bestGeodes = FAIL;
-        boolean hasNext;
-        do {
 
-            // run the plan
-            int geodes2 = runVersion2(plan);
-            if (geodes2 > bestGeodes) {
-                bestGeodes = geodes2;
-            }
-
-            // base 4 counter [0, 0, ..., 0] to [3, 3, ..., 3] then exits do-while by not setting hasNext
-            hasNext = false;
-            for (int i = 0; i < plan.length; i++) {
-                if (plan[i] < 3) {
-                    plan[i]++;
-                    hasNext = true;
-                    break;
-                }
-                plan[i] = 0;
-            }
-
-        } while (hasNext);
-
-        return bestGeodes;
-
-    }
-
-    public int runAllTrainingWheels(int length) {
-        if (length < 0 || length >= timeLimit) {
-            throw new IllegalArgumentException("length = " + length + ", expected [0, " + timeLimit + ")");
-        }
-        int[] plan = new int[length];
-        int bestGeodes = FAIL;
-        boolean hasNext;
-        do {
-
-            // run the plan
-            int geodes1 = runVersion1(plan);
-            int geodes2 = runVersion2(plan);
-            if (geodes1 != geodes2) {
-                AssertionError err = new AssertionError("mismatch versions, V1 returned " + geodes1 + ", V2 returned " + geodes2 + " for input " + Arrays.toString(plan));
-                synchronized (System.out) {
-                    err.printStackTrace(System.out);
-                }
-                throw err;
-            }
-            int geodes = geodes1;
-            if (geodes > bestGeodes) {
-                bestGeodes = geodes;
-            }
-
-            // base 4 counter [0, 0, ..., 0] to [3, 3, ..., 3] then exits do-while by not setting hasNext
-            hasNext = false;
-            for (int i = 0; i < plan.length; i++) {
-                if (plan[i] < 3) {
-                    plan[i]++;
-                    hasNext = true;
-                    break;
-                }
-                plan[i] = 0;
-            }
-
-        } while (hasNext);
-
-        return bestGeodes;
-
+    public static void main(String[] args) {
+        Simulation s = new Simulation(new Blueprint(1, 4, 2, 3, 14, 2, 7), 32);
+        System.out.println(s.runAllVersion1(4));
     }
 
 }
