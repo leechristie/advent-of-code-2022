@@ -1,7 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="MainPart1" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="aoc2022.day19.MainPart1" />
-    <module name="day19" />
+    <module name="more19" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
