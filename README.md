@@ -25,7 +25,7 @@ My Python solutions to Eric Wastl's "Advent of Code" 2022.
 |     | Day 19: Not Enough Minerals                     | :hot_pepper: :hot_pepper: :hot_pepper: :hot_pepper: :hot_pepper: |
 | ✅    | [Day 20: Grove Positioning System](day20.ipynb) | :hot_pepper: :hot_pepper:                                    |
 | ✅    | [Day 21: Monkey Math](day21.ipynb)              | :hot_pepper: :hot_pepper:                                    |
-|     | Day 22                                          |                                                              |
+| ✅    | [Day 23: Monkey Map](day21.ipynb)               | :hot_pepper: :hot_pepper:                                                             |
 |     | Day 23                                          |                                                              |
 |     | Day 24                                          |                                                              |
 |     | Day 25                                          |                                                              |
