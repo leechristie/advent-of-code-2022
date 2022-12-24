@@ -70,8 +70,9 @@ class ArrayHeap(AbstractHeap):
 def dijkstra(heap_factory: Callable[[], AbstractHeap],
              source_vertex: Any,
              neighbourhood_function: Callable[[Any], list[tuple[Any, int]]],
-             is_target: Callable[[Any], bool]) -> tuple[list[Any], list[Any]]:
-    return __a_star(heap_factory, source_vertex, neighbourhood_function, is_target, heuristic=lambda _: 0, pbar=lambda x: None)
+             is_target: Callable[[Any], bool],
+             pbar: Callable[[Any], None] = None) -> tuple[list[Any], list[Any]]:
+    return a_star(heap_factory, source_vertex, neighbourhood_function, is_target, heuristic=lambda _: 0, pbar=pbar)
 
 
 def a_star(heap_factory: Callable[[], AbstractHeap],
@@ -79,23 +80,10 @@ def a_star(heap_factory: Callable[[], AbstractHeap],
            neighbourhood_function: Callable[[Any], list[tuple[Any, int]]],
            is_target: Callable[[Any], bool],
            heuristic: Callable[[Any], int],
-           pbar=False) -> tuple[list[Any], list[Any]]:
+           pbar: Callable[[Any], None] = None) -> tuple[list[Any], list[Any]]:
 
-    if pbar:
-        with tqdm() as t:
-            def update(x):
-                t.update(x)
-            return __a_star(heap_factory, source_vertex, neighbourhood_function, is_target, heuristic, update)
-    else:
-        return __a_star(heap_factory, source_vertex, neighbourhood_function, is_target, heuristic, lambda x: None)
-
-
-def __a_star(heap_factory: Callable[[], AbstractHeap],
-             source_vertex: Any,
-             neighbourhood_function: Callable[[Any], list[tuple[Any, int]]],
-             is_target: Callable[[Any], bool],
-             heuristic: Callable[[Any], int],
-             pbar=Callable[[Any], None]) -> tuple[list[Any], list[Any]]:
+    if pbar is None:
+        pbar = lambda x: None
 
     previous_vertices = {}  # to reconstruct the path
 
