@@ -1,5 +1,6 @@
 from typing import Any, Callable
 from abc import ABC, abstractmethod
+from collections import deque
 from functools import partial
 from tqdm.notebook import tqdm
 
@@ -65,6 +66,114 @@ class ArrayHeap(AbstractHeap):
 
     def __repr__(self):
         return str(self)
+
+
+class BinaryHeapNode:
+
+    __slots__ = ['element', 'key', 'index']
+
+    def __init__(self, element: Any, key: int, index: int):
+        self.element = element
+        self.key = key
+        self.index = index
+
+    def __hash__(self):
+        return hash(self.element)
+
+    def __eq__(self, other):
+        if type(other) != BinaryHeapNode:
+            return False
+        return self.element == other.element
+
+    def __ne__(self, other):
+        if type(other) != BinaryHeapNode:
+            return True
+        return self.element != other.element
+
+    def __str__(self):
+        return repr(self)
+
+    def __repr__(self):
+        return f'BinaryHeapNode(element={self.element}, key={self.key}, index={self.index})'
+
+
+class BinaryHeap(AbstractHeap):
+
+    def __init__(self):
+        self.heap: deque[BinaryHeapNode] = deque()
+        self.lookup: dict[Any, BinaryHeapNode] = {}
+
+    def __bool__(self) -> bool:
+        return bool(self.heap)
+
+    def add(self, element: Any, key: int) -> None:
+        if element in self.lookup:
+            raise ValueError(f'duplicate element: {element}')
+        self.__append_node(element, key)
+        self.__fix_heap_property(key, len(self.heap) - 1)
+
+    def decrease_key(self, element: Any, new_key: int) -> None:
+        if element not in self.lookup:
+            raise ValueError(f'no such element: {element}')
+        node: BinaryHeapNode = self.lookup[element]
+        old_key = node.key
+        if old_key < new_key:
+            raise ValueError(f'cannot increase key for {element} from {old_key} to {new_key}')
+        node.key = new_key
+        self.__fix_heap_property(new_key, node.index)
+
+    def delete_minimum(self) -> Any:
+        if not self:
+            raise ValueError(f'no such element:')
+        if len(self.heap) == 1:
+            root_element = self.heap.popleft().element
+        else:
+            root_element = self.heap[0].element
+            self.__swap_nodes(0, len(self.heap) - 1);
+            self.heap.pop()
+            self.__heapify(0)
+        del self.lookup[root_element]
+        return root_element
+
+    def __append_node(self, element: Any, key: int) -> None:
+        index = len(self.heap)
+        node = BinaryHeapNode(element, key, index)
+        self.lookup[element] = node
+        self.heap.append(node)
+
+    def __swap_nodes(self, a: int, b: int) -> None:
+        node_a = self.heap[a]
+        node_b = self.heap[b]
+        node_a.index = b
+        node_b.index = a
+        self.heap[a] = node_b
+        self.heap[b] = node_a
+
+    def __fix_heap_property(self, key: Any, index: int):
+        parent_index = (index - 1) // 2
+        parent_key = self.heap[parent_index].key
+        while key < parent_key:
+            self.__swap_nodes(index, parent_index)
+            index = parent_index
+            parent_index = (index - 1) // 2
+            parent_key = self.heap[parent_index].key
+
+    def __heapify(self, index: int):
+        left_index = 2 * index + 1
+        right_index = left_index + 1
+        key = self.heap[index].key;
+        left_key = self.heap[left_index].key if left_index < len(self.heap) else None
+        right_key = self.heap[right_index].key if right_index < len(self.heap) else None
+        smallest_index = index
+        smallest_key = key
+        if left_key is not None and left_key < smallest_key:
+            smallest_key = left_key
+            smallest_index = left_index
+        if right_key is not None and right_key < smallest_key:
+            smallest_index = right_index
+        if smallest_index != index:
+            self.__swap_nodes(index, smallest_index)
+            self.__heapify(smallest_index)
 
 
 def dijkstra(heap_factory: Callable[[], AbstractHeap],
