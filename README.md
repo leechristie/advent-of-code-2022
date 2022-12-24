@@ -35,5 +35,5 @@ Links below go to my code for each day.
 | ⭐⭐   | [Day 21: Monkey Math](day21.ipynb)              | :hot_pepper: :hot_pepper:                                        |
 | ⭐⭐   | [Day 22: Monkey Map](day22.ipynb)               | :hot_pepper: :hot_pepper:                                        |
 | ⭐⭐     | [Day 23: Unstable Diffusion](day23.ipynb)       | :hot_pepper: :hot_pepper:                                        |
-|      | Day 24                                          |                                                                  |
+| ⭐⭐     | [Day 24: Blizzard Basin](day24.ipynb)           | :hot_pepper: :hot_pepper: :hot_pepper:                                        |
 |      | Day 25                                          |                                                                  |
