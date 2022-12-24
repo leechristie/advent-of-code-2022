@@ -21,10 +21,15 @@ public class Thing4 {
             Simulation simulation = new Simulation(blueprint, TIME_LIMIT);
             System.out.println(blueprint);
 
-            pause();
+            //pause();
+
+            // no inserts: 6 * 45 * 19
+            // 1 insert: 9 * 47 * 24
 
             int bestGeodes = -1;
-            try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("plans.csv")))) {
+            try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("plans_2_insert_sample.csv")))) {
+            //try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("plans_1_insert.csv")))) {
+            //try (BufferedReader in = new BufferedReader(new InputStreamReader(new FileInputStream("plans.csv")))) {
                 String line;
                 while ((line = in.readLine()) != null) {
                     String[] tokens = line.strip().split(",");
@@ -40,7 +45,7 @@ public class Thing4 {
                 }
             }
 
-            pause();
+            //pause();
 
         }
 
