@@ -1,6 +1,6 @@
 # Advent of Code 2022
 
-## Day 24: Blizzard Basin
+## Day 19: Not Enough Minerals
 
 Solution code by [leechristie](https://github.com/leechristie) for Advent of Code 2022.
 
