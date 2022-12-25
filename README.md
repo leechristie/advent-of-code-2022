@@ -4,8 +4,8 @@ My Python solutions to Eric Wastl's "Advent of Code" 2022.
 
 Links below go to my code for each day.
 
-| Done | My Solution                                     | Difficulty                                                       |
-|------|-------------------------------------------------|------------------------------------------------------------------|
+| Done | My Solution                                       | Difficulty                                                       |
+|------|---------------------------------------------------|------------------------------------------------------------------|
 | ⭐⭐   | [Day 1: Calorie Counting](day01.ipynb)          | :hot_pepper:                                                     |
 | ⭐⭐   | [Day 2: Rock Paper Scissors](day02.ipynb)       | :hot_pepper:                                                     |     
 | ⭐⭐   | [Day 3: Rucksack Reorganization](day03.ipynb)   | :hot_pepper:                                                     |          
@@ -23,11 +23,11 @@ Links below go to my code for each day.
 | ⭐⭐   | [Day 15: Beacon Exclusion Zone](day15.ipynb)    | :hot_pepper: :hot_pepper: :hot_pepper:                           |    
 | ⭐⭐   | [Day 16: Proboscidea Volcanium](day16.ipynb)    | :hot_pepper: :hot_pepper: :hot_pepper: :hot_pepper:              |
 | ⭐⭐   | [Day 17: Pyroclastic Flow](day17.ipynb)         | :hot_pepper: :hot_pepper: :hot_pepper:                           |
-| ⭐⭐   | [Day 18: Boiling Boulders](day18.ipynb)         | :hot_pepper:  :hot_pepper:                                    |
+| ⭐⭐   | [Day 18: Boiling Boulders](day18.ipynb)         | :hot_pepper:  :hot_pepper:                                       |
 | ⭐⭐   | [Day 19: Not Enough Minerals](day19/)           | :hot_pepper: :hot_pepper: :hot_pepper: :hot_pepper: :hot_pepper: |
 | ⭐⭐   | [Day 20: Grove Positioning System](day20.ipynb) | :hot_pepper: :hot_pepper:                                        |
 | ⭐⭐   | [Day 21: Monkey Math](day21.ipynb)              | :hot_pepper: :hot_pepper:                                        |
 | ⭐⭐   | [Day 22: Monkey Map](day22.ipynb)               | :hot_pepper: :hot_pepper:                                        |
 | ⭐⭐   | [Day 23: Unstable Diffusion](day23.ipynb)       | :hot_pepper: :hot_pepper:                                        |
-| ⭐⭐   | [Day 24: Blizzard Basin](day24.ipynb)           | :hot_pepper: :hot_pepper: :hot_pepper:                                        |
-| ⭐⭐   | [Day 25: Full of Hot Air](day25.ipynb)          | :hot_pepper: :hot_pepper: :hot_pepper:                                        |
+| ⭐⭐   | [Day 24: Blizzard Basin](day24.ipynb)           | :hot_pepper: :hot_pepper: :hot_pepper:                           |
+| ⭐⭐   | [Day 25: Full of Hot Air](day25.ipynb)          | :hot_pepper:                                                     |
