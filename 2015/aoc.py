@@ -1,4 +1,4 @@
-from typing import Iterator
+from typing import Iterator, Iterable
 from dataclasses import dataclass
 
 
@@ -27,6 +27,13 @@ def load_split_lines(filename: str, token: str, dtype=str) -> list[tuple]:
     return [tuple(map(dtype, line.split(token))) for line in load_lines(filename)]
 
 
+def split_prefix(line: str, valid_prefixes: Iterable[str]) -> tuple[str, str]:
+    for prefix in valid_prefixes:
+        if line.startswith(prefix):
+            return prefix, line[len(prefix):]
+    raise ValueError(f'unknown prefix for string: {line}')
+
+
 @dataclass
 class Position:
 
@@ -39,6 +46,27 @@ class Position:
 
     def __hash__(self):
         return hash((self.x, self.y))
+
+    @staticmethod
+    def parse(s: str) -> 'Position':
+        x, y = s.split(',')
+        x = int(x)
+        y = int(y)
+        return Position(x, y)
+
+    def np(self):
+        assert self.x >= 0 and self.y >= 0
+        return self.y, self.x
+
+    @staticmethod
+    def closed_rectangle(start: 'Position', end: 'Position') -> Iterator['Position']:
+        start_y = min(start.y, end.y)
+        end_y = max(start.y, end.y)
+        start_x = min(start.x, end.x)
+        end_x = max(start.x, end.x)
+        for y in range(start_y, end_y+1):
+            for x in range(start_x, end_x+1):
+                yield Position(x, y)
 
 
 @dataclass
