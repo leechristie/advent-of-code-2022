@@ -136,6 +136,8 @@ dmypy.json
 
 # ignoring DataSpell directory
 */.idea/
+.idea/*
 
 # 2022 Day 19 classes
 2022/day19/out/
+
