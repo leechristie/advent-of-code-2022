@@ -15,10 +15,12 @@ def load_and_map_chars(filename: str, mapping_function=str):
     return rv
 
 
-def load_lines(filename: str) -> Iterator[str]:
+def load_lines(filename: str) -> list[str]:
+    rv = []
     with open(filename) as file:
         for line in file:
-            yield line.strip()
+            rv.append(line.strip())
+    return rv
 
 
 def load_split_lines(filename: str, token: str, dtype=str) -> list[tuple]:
