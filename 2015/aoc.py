@@ -1,5 +1,7 @@
-from typing import Iterator, Iterable
+import string
+from typing import Iterator, Iterable, Union
 from dataclasses import dataclass
+from abc import ABC, abstractmethod
 
 
 def load_single_line(filename: str) -> str:
@@ -32,6 +34,31 @@ def split_prefix(line: str, valid_prefixes: Iterable[str]) -> tuple[str, str]:
         if line.startswith(prefix):
             return prefix, line[len(prefix):]
     raise ValueError(f'unknown prefix for string: {line}')
+
+
+def parse_int_or_str(value: str) -> Union[str, int]:
+    try:
+        return int(value)
+    except ValueError:
+        return value
+
+
+def is_non_empty_lowercase_alphabetic_only(value: str) -> bool:
+    if not value:
+        return False
+    for v in value:
+        if v not in string.ascii_lowercase:
+            return False
+    return True
+
+
+def is_non_empty_uppercase_alphabetic_only(value: str) -> bool:
+    if not value:
+        return False
+    for v in value:
+        if v not in string.ascii_uppercase:
+            return False
+    return True
 
 
 @dataclass
