@@ -1,7 +1,7 @@
 import string
 from typing import Iterator, Iterable, Union
 from dataclasses import dataclass
-from abc import ABC, abstractmethod
+from itertools import permutations
 
 
 def load_single_line(filename: str) -> str:
@@ -135,3 +135,36 @@ class Velocity:
             return Velocity(other.dx + self.dx, other.dy + self.dy)
         else:
             raise TypeError()
+
+
+def all_unique_symmetric_tsp_permutations(n, return_home=True):
+    if return_home:
+        for p in permutations(range(1, n)):
+            if p[0] < p[-1]:
+                yield (0, ) + p
+    else:
+        for p in permutations(range(0, n)):
+            yield p
+
+
+def evaluate_symmetric_tsp_from_dense_matrix(matrix, permutation, return_home=True):
+    total = 0
+    n = len(permutation)
+    for i in range(n):
+        from_city = permutation[i]
+        to_city = permutation[(i + 1) % n]
+        if return_home or i < n-1:
+            total += matrix[(from_city, to_city)]
+    return total
+
+
+def exhaustively_evaluate_symmetric_tsp_from_dense_matrix(matrix, return_home=True):
+    n = len(matrix)
+    best_value = None
+    best_permutation = None
+    for permutation in all_unique_symmetric_tsp_permutations(n, return_home=return_home):
+        value = evaluate_symmetric_tsp_from_dense_matrix(matrix, permutation, return_home=return_home)
+        if best_value is None or best_value < value:
+            best_value = value
+            best_permutation = permutation
+    return best_value, best_permutation
