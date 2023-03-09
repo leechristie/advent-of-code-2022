@@ -25,8 +25,22 @@ def load_lines(filename: str) -> list[str]:
     return rv
 
 
-def load_split_lines(filename: str, token: str, dtype=str) -> list[tuple]:
-    return [tuple(map(dtype, line.split(token))) for line in load_lines(filename)]
+def load_split_lines(filename: str, sep: str, dtype=str) -> list[tuple]:
+    return [tuple(map(dtype, line.split(sep))) for line in load_lines(filename)]
+
+
+def load_split_lines_at_indices(filename: str, sep: str, indices: list[int], dtypes=(str, )) -> list[tuple]:
+    rv = []
+    for line in load_lines(filename):
+        current = []
+        tokens = line.split(sep)
+        output_index = 0
+        for i, t in enumerate(tokens):
+            if i in indices:
+                current.append(dtypes[output_index % len(dtypes)](t))
+                output_index += 1
+        rv.append(tuple(current))
+    return rv
 
 
 def split_prefix(line: str, valid_prefixes: Iterable[str]) -> tuple[str, str]:
@@ -168,3 +182,17 @@ def exhaustively_evaluate_symmetric_tsp_from_dense_matrix(matrix, return_home=Tr
             best_value = value
             best_permutation = permutation
     return best_value, best_permutation
+
+
+def optimize(candidates, evaluation, minimize=False):
+    best = None
+    best_candidate = None
+    for candidate in candidates:
+        current = evaluation(candidate)
+        if minimize:
+            if best is None or best > current:
+                best, best_candidate = current, candidate
+        else:
+            if best is None or best < current:
+                best, best_candidate = current, candidate
+    return best, candidate
