@@ -1,7 +1,9 @@
 import string
-from typing import Iterator, Iterable, Union
+from typing import Iterator, Iterable, Union, Callable
 from dataclasses import dataclass
 from itertools import permutations
+
+import numpy as np
 
 
 def load_single_line(filename: str) -> str:
@@ -43,6 +45,68 @@ def load_split_lines_at_indices(filename: str, sep: str, indices: list[int], dty
                 output_index += 1
         rv.append(tuple(current))
     return rv
+
+
+def load_int_matrix(filename: str, mapping_function: Callable[[str], int]):
+    lines = []
+    for line in load_lines(filename):
+        current = []
+        for char in line:
+            current.append(mapping_function(char))
+        lines.append(current)
+    return np.array(lines, dtype=int)
+
+
+class DefaultMatrix:
+
+    __slots__ = ['matrix', 'default', 'height', 'width', 'shape']
+
+    def __init__(self, matrix, default=0):
+        self.matrix = matrix
+        self.default = default
+        self.height, self.width = self.shape = matrix.shape
+
+    def copy(self):
+        return DefaultMatrix(np.copy(self.matrix), self.default)
+
+    def __setitem__(self, key, value):
+        y, x = key
+        if 0 <= x < self.width and 0 <= y < self.height:
+            self.matrix[key] = value
+
+    def __getitem__(self, item: tuple[int, int]) -> int:
+        y, x = item
+        if 0 <= x < self.width and 0 <= y < self.height:
+            return self.matrix[item]
+        return self.default
+
+    def __str__(self):
+        return str(self.matrix)
+
+    def __repr__(self):
+        return repr(self.matrix)
+
+    def neighbours(self, item: tuple[int, int]) -> Iterator[tuple[int, int]]:
+
+        y, x = item
+
+        yield y-1, x-1
+        yield y-1, x
+        yield y-1, x+1
+
+        yield y, x-1
+        yield y, x+1
+
+        yield y+1, x-1
+        yield y+1, x
+        yield y+1, x+1
+
+    def print_mapped(self, mapping_function):
+        for y in range(self.height):
+            line = ''
+            for x in range(self.width):
+                line += mapping_function(self[(y, x)])
+            print(line)
 
 
 def split_prefix(line: str, valid_prefixes: Iterable[str]) -> tuple[str, str]:
