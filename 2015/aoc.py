@@ -17,11 +17,11 @@ def load_and_map_chars(filename: str, mapping_function=str):
     return rv
 
 
-def load_lines(filename: str) -> list[str]:
+def load_lines(filename: str, dtype=str) -> list[str]:
     rv = []
     with open(filename) as file:
         for line in file:
-            rv.append(line.strip())
+            rv.append(dtype(line.strip()))
     return rv
 
 
@@ -198,3 +198,10 @@ def optimize(candidates, evaluation, minimize=False):
             if best is None or best < current:
                 best, best_candidate = current, candidate
     return best, candidate
+
+
+def product(numbers: Union[float, int]) -> Union[float, int]:
+    rv = 1
+    for number in numbers:
+        rv *= number
+    return rv
