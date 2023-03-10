@@ -29,9 +29,11 @@ def load_split_lines(filename: str, sep: str, dtype=str) -> list[tuple]:
     return [tuple(map(dtype, line.split(sep))) for line in load_lines(filename)]
 
 
-def load_split_lines_at_indices(filename: str, sep: str, indices: list[int], dtypes=(str, )) -> list[tuple]:
+def load_split_lines_at_indices(filename: str, sep: str, indices: list[int], dtypes=(str, ), ignore: str='') -> list[tuple]:
     rv = []
     for line in load_lines(filename):
+        for c in ignore:
+            line = line.replace(c, '')
         current = []
         tokens = line.split(sep)
         output_index = 0
