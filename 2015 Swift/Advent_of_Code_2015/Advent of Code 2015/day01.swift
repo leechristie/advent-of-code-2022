@@ -47,7 +47,7 @@ public func day01() throws {
 
     printAOCDayHeader(day: 1, title: "Not Quite Lisp")
 
-    let path = "/Users/0x1ac/GitHub/leechristie/advent-of-code/2015/data/input01.txt"
+    let path = "\(PATH)/input01.txt"
     let string = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
 
     part1(string: string)
