@@ -14,3 +14,14 @@ public func printAOCDayHeader(day: Int, title: String) {
     print()
 
 }
+
+public func runSolution(day: Int) throws -> Bool {
+    switch day {
+    case 1:
+        try day01()
+    default:
+        print("No solution file in Swift for 2015 Day \(day) yet.")
+        return false
+    }
+    return true
+}
