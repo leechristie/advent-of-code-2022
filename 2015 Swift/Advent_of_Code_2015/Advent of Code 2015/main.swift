@@ -1,5 +1,3 @@
-import Foundation
-
 printAOCHeader(year: 2015)
 
 print("Choose Day", terminator: ": ")

@@ -64,8 +64,7 @@ public func day02() throws {
 
     printAOCDayHeader(day: 2, title: "I Was Told There Would Be No Math")
 
-    let path = "\(PATH)/input02.txt"
-    let string = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+    let string = try loadAOCData(day: 2)
     let data = parseData(string: string)
 
     part1(data: data)

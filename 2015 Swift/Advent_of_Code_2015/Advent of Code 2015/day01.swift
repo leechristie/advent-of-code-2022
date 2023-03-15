@@ -47,8 +47,7 @@ public func day01() throws {
 
     printAOCDayHeader(day: 1, title: "Not Quite Lisp")
 
-    let path = "\(PATH)/input01.txt"
-    let string = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
+    let string = try loadAOCData(day: 1)
 
     part1(string: string)
     part2(string: string)
