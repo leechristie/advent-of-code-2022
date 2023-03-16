@@ -27,6 +27,8 @@ public func runSolution(day: Int) throws -> Bool {
         try day04()
     case 5:
         try day05()
+    case 6:
+        try day06()
     default:
         print("No solution file in Swift for 2015 Day \(day) yet.")
         return false

@@ -40,6 +40,38 @@ private func isNice(_ string: String) -> Bool {
     doesNotHaveBannedSubstring(string) && hasLetterPair(string) && hasThreeVowels(string)
 }
 
+private func containsPairAtLeastTwice(_ string: String) -> Bool {
+    let bound = string.count-3
+    for i in 0..<bound {
+        let left0 = string[string.index(string.startIndex, offsetBy: i)]
+        let left1 = string[string.index(string.startIndex, offsetBy: i + 1)]
+        for j in (i + 2)..<(string.count-1) {
+            let right0 = string[string.index(string.startIndex, offsetBy: j)]
+            let right1 = string[string.index(string.startIndex, offsetBy: j + 1)]
+            if left0 == right0 && left1 == right1 {
+                return true
+            }
+        }
+    }
+    return false
+}
+
+private func containsRepeatWithOneBetween(_ string: String) -> Bool {
+    let bound = string.count-2
+    for i in 0..<bound {
+        let j = i + 2
+        if string[string.index(string.startIndex, offsetBy: i)]
+                   == string[string.index(string.startIndex, offsetBy: j)] {
+            return true
+        }
+    }
+    return false
+}
+
+private func isNicer(_ string: String) -> Bool {
+    containsPairAtLeastTwice(string) && containsRepeatWithOneBetween(string)
+}
+
 private func part1(data: [String]) {
 
     print("Part 1\n")
@@ -59,7 +91,14 @@ private func part2(data: [String]) {
 
     print("Part 2\n")
 
-    print("TODO\n")
+    var niceCount = 0
+    for line in data {
+        if isNicer(line) {
+            niceCount += 1
+        }
+    }
+
+    print("The number of nicer strings is \(niceCount).\n")
 
 }
 

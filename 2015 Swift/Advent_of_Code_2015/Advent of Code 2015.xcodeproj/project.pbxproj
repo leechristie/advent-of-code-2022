@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2DBB807308FE0CE927AA3C07 /* day04.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB80488323BC1547CD14FE /* day04.swift */; };
 		2DBB8096DC146292FE048864 /* aoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB8177EEE3E34E731DD5DB /* aoc.swift */; };
+		2DBB80DC01559A8078EC46B0 /* day06.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB809D7C497BC79910E325 /* day06.swift */; };
 		2DBB837D8472BE1AB23700CD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB8B53674CE3C1CC470047 /* main.swift */; };
 		2DBB867052332D6F2D040EDE /* day02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB83AB2CBF5E90251F96B3 /* day02.swift */; };
 		2DBB871153D31C0FCF8849B8 /* day05.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB8C327DC00FC225699ABC /* day05.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		2DBB80488323BC1547CD14FE /* day04.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day04.swift; sourceTree = "<group>"; };
+		2DBB809D7C497BC79910E325 /* day06.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day06.swift; sourceTree = "<group>"; };
 		2DBB8177EEE3E34E731DD5DB /* aoc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aoc.swift; sourceTree = "<group>"; };
 		2DBB82E14305B0ABE078B43D /* day03.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day03.swift; sourceTree = "<group>"; };
 		2DBB83AB2CBF5E90251F96B3 /* day02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day02.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				2DBB82E14305B0ABE078B43D /* day03.swift */,
 				2DBB80488323BC1547CD14FE /* day04.swift */,
 				2DBB8C327DC00FC225699ABC /* day05.swift */,
+				2DBB809D7C497BC79910E325 /* day06.swift */,
 			);
 			path = "Advent of Code 2015";
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 				2DBB89837721CCFC4DD25132 /* day03.swift in Sources */,
 				2DBB807308FE0CE927AA3C07 /* day04.swift in Sources */,
 				2DBB871153D31C0FCF8849B8 /* day05.swift in Sources */,
+				2DBB80DC01559A8078EC46B0 /* day06.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
