@@ -33,33 +33,43 @@ private func solve(string: String, target: Int) -> (Int, String) {
     }
 }
 
-private func part1(string: String) {
+private func part1(string: String, timeOnly: Bool = false) {
 
-    print("Part 1\n")
+    if !timeOnly {
+        print("Part 1\n")
+    }
 
     let (nonce, hash) = solve(string: string, target: 5)
 
-    print("The winning nonce for target 5 is \(nonce) with hash \(hash)\n")
+    if !timeOnly {
+        print("The winning nonce for target 5 is \(nonce) with hash \(hash)\n")
+    }
 
 }
 
-private func part2(string: String) {
+private func part2(string: String, timeOnly: Bool = false) {
 
-    print("Part 2\n")
+    if !timeOnly {
+        print("Part 2\n")
+    }
 
     let (nonce, hash) = solve(string: string, target: 6)
 
-    print("The winning nonce for target 6 is \(nonce) with hash \(hash)\n")
+    if !timeOnly {
+        print("The winning nonce for target 6 is \(nonce) with hash \(hash)\n")
+    }
 
 }
 
-public func day04() throws {
+public func day04(timeOnly: Bool = false) throws {
 
-    printAOCDayHeader(day: 4, title: "The Ideal Stocking Stuffer")
+    if !timeOnly {
+        printAOCDayHeader(day: 4, title: "The Ideal Stocking Stuffer")
+    }
 
     let string = "bgvyzdsv"
 
-    part1(string: string)
-    part2(string: string)
+    part1(string: string, timeOnly: timeOnly)
+    part2(string: string, timeOnly: timeOnly)
 
 }

@@ -20,9 +20,11 @@ private func splitCommand(_ string: String) -> (Command, String) {
     return (Command.toggle, substring)
 }
 
-private func part1() {
+private func part1(timeOnly: Bool = false) throws {
 
-    print("Part 1\n")
+    if !timeOnly {
+        print("Part 1\n")
+    }
 
     var lights = Array(repeating: Array(repeating: 0, count: 1000), count: 1000)
 
@@ -32,29 +34,33 @@ private func part1() {
         }
     }
 
-    print("TODO.\n")
+    throw AOCError.unimplemented
 
 }
 
-private func part2() {
+private func part2(timeOnly: Bool = false) throws {
 
-    print("Part 2\n")
+    if !timeOnly {
+        print("Part 2\n")
+    }
 
-    print("TODO\n")
+    throw AOCError.unimplemented
 
 }
 
-public func day06() throws {
+public func day06(timeOnly: Bool = false) throws {
 
-    printAOCDayHeader(day: 6, title: "Probably a Fire Hazard")
+    if !timeOnly {
+        printAOCDayHeader(day: 6, title: "Probably a Fire Hazard")
+    }
 
     let string = try loadAOCData(day: 6)
 
     for line in string.split(whereSeparator: \.isNewline) {
-        print(line, splitCommand(String(line)))
+        //print(line, splitCommand(String(line)))
     }
 
-    part1()
-    part2()
+    try part1(timeOnly: timeOnly)
+    try part2(timeOnly: timeOnly)
 
 }

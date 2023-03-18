@@ -14,9 +14,11 @@ private func parseData(string: String) -> [(Int, Int, Int)] {
     return data
 }
 
-private func part1(data: [(Int, Int, Int)]) {
+private func part1(data: [(Int, Int, Int)], timeOnly: Bool = false) {
 
-    print("Part 1\n")
+    if !timeOnly {
+        print("Part 1\n")
+    }
 
     var total_area = 0
 
@@ -33,13 +35,17 @@ private func part1(data: [(Int, Int, Int)]) {
 
     }
 
-    print("They should order \(total_area) square feet of wrapping paper.\n")
+    if !timeOnly {
+        print("They should order \(total_area) square feet of wrapping paper.\n")
+    }
 
 }
 
-private func part2(data: [(Int, Int, Int)]) {
+private func part2(data: [(Int, Int, Int)], timeOnly: Bool = false) {
 
-    print("Part 2\n")
+    if !timeOnly {
+        print("Part 2\n")
+    }
 
     var total_length = 0
 
@@ -56,18 +62,22 @@ private func part2(data: [(Int, Int, Int)]) {
 
     }
 
-    print("They should order \(total_length) feet of ribbon.\n")
+    if !timeOnly {
+        print("They should order \(total_length) feet of ribbon.\n")
+    }
 
 }
 
-public func day02() throws {
+public func day02(timeOnly: Bool = false) throws {
 
-    printAOCDayHeader(day: 2, title: "I Was Told There Would Be No Math")
+    if !timeOnly {
+        printAOCDayHeader(day: 2, title: "I Was Told There Would Be No Math")
+    }
 
     let string = try loadAOCData(day: 2)
     let data = parseData(string: string)
 
-    part1(data: data)
-    part2(data: data)
+    part1(data: data, timeOnly: timeOnly)
+    part2(data: data, timeOnly: timeOnly)
 
 }

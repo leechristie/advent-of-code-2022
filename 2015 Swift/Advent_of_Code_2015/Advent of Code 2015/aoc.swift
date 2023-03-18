@@ -15,22 +15,23 @@ public func printAOCDayHeader(day: Int, title: String) {
 
 }
 
-public func runSolution(day: Int) throws -> Bool {
+public func runSolution(day: Int, timeOnly: Bool = false) throws -> Bool {
     switch day {
     case 1:
-        try day01()
+        try day01(timeOnly: timeOnly)
     case 2:
-        try day02()
+        try day02(timeOnly: timeOnly)
     case 3:
-        try day03()
+        try day03(timeOnly: timeOnly)
     case 4:
-        try day04()
+        try day04(timeOnly: timeOnly)
     case 5:
-        try day05()
+        try day05(timeOnly: timeOnly)
     case 6:
-        try day06()
+        try day06(timeOnly: timeOnly)  // unfinished swift conversion
+    case 21:
+        try day21(timeOnly: timeOnly)
     default:
-        print("No solution file in Swift for 2015 Day \(day) yet.")
         return false
     }
     return true
@@ -67,4 +68,9 @@ public func loadAOCData(day: Int) throws -> String {
     } else {
         return try String(contentsOfFile: "\(PATH)/input\(day).txt", encoding: String.Encoding.utf8)
     }
+}
+
+enum AOCError: Error {
+    case unimplemented
+    case wrongSolution
 }

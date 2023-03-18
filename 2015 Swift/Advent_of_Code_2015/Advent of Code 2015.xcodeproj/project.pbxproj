@@ -15,6 +15,7 @@
 		2DBB871153D31C0FCF8849B8 /* day05.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB8C327DC00FC225699ABC /* day05.swift */; };
 		2DBB89837721CCFC4DD25132 /* day03.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB82E14305B0ABE078B43D /* day03.swift */; };
 		2DBB8C041CFC32FE9D2B8D2C /* day01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB8AA119481B0933E9AC60 /* day01.swift */; };
+		2DBB8D6EB0DAC9702E1011AC /* day21.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB81AA40797D609964E51D /* day21.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		2DBB80488323BC1547CD14FE /* day04.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day04.swift; sourceTree = "<group>"; };
 		2DBB809D7C497BC79910E325 /* day06.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day06.swift; sourceTree = "<group>"; };
 		2DBB8177EEE3E34E731DD5DB /* aoc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aoc.swift; sourceTree = "<group>"; };
+		2DBB81AA40797D609964E51D /* day21.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day21.swift; sourceTree = "<group>"; };
 		2DBB82E14305B0ABE078B43D /* day03.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day03.swift; sourceTree = "<group>"; };
 		2DBB83AB2CBF5E90251F96B3 /* day02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day02.swift; sourceTree = "<group>"; };
 		2DBB878667D60D0EDA4083D5 /* Advent of Code 2015 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Advent of Code 2015"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,7 @@
 				2DBB80488323BC1547CD14FE /* day04.swift */,
 				2DBB8C327DC00FC225699ABC /* day05.swift */,
 				2DBB809D7C497BC79910E325 /* day06.swift */,
+				2DBB81AA40797D609964E51D /* day21.swift */,
 			);
 			path = "Advent of Code 2015";
 			sourceTree = "<group>";
@@ -138,6 +141,7 @@
 				2DBB807308FE0CE927AA3C07 /* day04.swift in Sources */,
 				2DBB871153D31C0FCF8849B8 /* day05.swift in Sources */,
 				2DBB80DC01559A8078EC46B0 /* day06.swift in Sources */,
+				2DBB8D6EB0DAC9702E1011AC /* day21.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

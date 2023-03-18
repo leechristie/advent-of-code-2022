@@ -8,22 +8,28 @@ private func updateFloor(floor: Int, char: Character) -> Int {
     return floor - 1
 }
 
-private func part1(string: String) {
+private func part1(string: String, timeOnly: Bool = false) {
 
-    print("Part 1\n")
+    if !timeOnly {
+        print("Part 1\n")
+    }
 
     var currentFloor = 0
     for char in string {
         currentFloor = updateFloor(floor: currentFloor, char: char)
     }
 
-    print("The instructions end at floor \(currentFloor).\n")
+    if !timeOnly {
+        print("The instructions end at floor \(currentFloor).\n")
+    }
 
 }
 
-private func part2(string: String) {
+private func part2(string: String, timeOnly: Bool = false) {
 
-    print("Part 2\n")
+    if !timeOnly {
+        print("Part 2\n")
+    }
 
     var currentFloor = 0
     let targetFloor = -1
@@ -38,18 +44,21 @@ private func part2(string: String) {
     }
 
     assert(found >= 0, "Error! Did not find the target floor!")
-    print("The instructions reach the basement at position \(found).")
-    print()
+    if !timeOnly {
+        print("The instructions reach the basement at position \(found).\n")
+    }
 
 }
 
-public func day01() throws {
+public func day01(timeOnly: Bool = false) throws {
 
-    printAOCDayHeader(day: 1, title: "Not Quite Lisp")
+    if !timeOnly {
+        printAOCDayHeader(day: 1, title: "Not Quite Lisp")
+    }
 
     let string = try loadAOCData(day: 1)
 
-    part1(string: string)
-    part2(string: string)
+    part1(string: string, timeOnly: timeOnly)
+    part2(string: string, timeOnly: timeOnly)
 
 }

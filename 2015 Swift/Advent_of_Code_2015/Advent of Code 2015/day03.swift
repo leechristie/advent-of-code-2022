@@ -1,8 +1,10 @@
 import Foundation
 
-private func part1(string: String) {
+private func part1(string: String, timeOnly: Bool = false) {
 
-    print("Part 1\n")
+    if !timeOnly {
+        print("Part 1\n")
+    }
 
     var visited = Set<Point>()
 
@@ -12,13 +14,17 @@ private func part1(string: String) {
         visited.insert(point)
     }
 
-    print("\(visited.count) houses receive at least 1 present.\n")
+    if !timeOnly {
+        print("\(visited.count) houses receive at least 1 present.\n")
+    }
 
 }
 
-private func part2(string: String) {
+private func part2(string: String, timeOnly: Bool = false) {
 
-    print("Part 2\n")
+    if !timeOnly {
+        print("Part 2\n")
+    }
 
     var visited = Set<Point>()
 
@@ -36,17 +42,21 @@ private func part2(string: String) {
         even = !even
     }
 
-    print("\(visited.count) houses receive at least 1 present.\n")
+    if !timeOnly {
+        print("\(visited.count) houses receive at least 1 present.\n")
+    }
 
 }
 
-public func day03() throws {
+public func day03(timeOnly: Bool = false) throws {
 
-    printAOCDayHeader(day: 3, title: "Perfectly Spherical Houses in a Vacuum")
+    if !timeOnly {
+        printAOCDayHeader(day: 3, title: "Perfectly Spherical Houses in a Vacuum")
+    }
 
     let string = try loadAOCData(day: 3)
 
-    part1(string: string)
-    part2(string: string)
+    part1(string: string, timeOnly: timeOnly)
+    part2(string: string, timeOnly: timeOnly)
 
 }

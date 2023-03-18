@@ -72,9 +72,11 @@ private func isNicer(_ string: String) -> Bool {
     containsPairAtLeastTwice(string) && containsRepeatWithOneBetween(string)
 }
 
-private func part1(data: [String]) {
+private func part1(data: [String], timeOnly: Bool = false) {
 
-    print("Part 1\n")
+    if !timeOnly {
+        print("Part 1\n")
+    }
 
     var niceCount = 0
     for line in data {
@@ -83,13 +85,17 @@ private func part1(data: [String]) {
         }
     }
 
-    print("The number of nice strings is \(niceCount).\n")
+    if !timeOnly {
+        print("The number of nice strings is \(niceCount).\n")
+    }
 
 }
 
-private func part2(data: [String]) {
+private func part2(data: [String], timeOnly: Bool = false) {
 
-    print("Part 2\n")
+    if !timeOnly {
+        print("Part 2\n")
+    }
 
     var niceCount = 0
     for line in data {
@@ -98,7 +104,9 @@ private func part2(data: [String]) {
         }
     }
 
-    print("The number of nicer strings is \(niceCount).\n")
+    if !timeOnly {
+        print("The number of nicer strings is \(niceCount).\n")
+    }
 
 }
 
@@ -118,14 +126,16 @@ private func parseData(string: String, limit: Int? = nil) -> [String] {
     return data
 }
 
-public func day05() throws {
+public func day05(timeOnly: Bool = false) throws {
 
-    printAOCDayHeader(day: 5, title: "Doesn't He Have Intern-Elves For This?")
+    if !timeOnly {
+        printAOCDayHeader(day: 5, title: "Doesn't He Have Intern-Elves For This?")
+    }
 
     let string = try loadAOCData(day: 5)
     let data = parseData(string: string)
 
-    part1(data: data)
-    part2(data: data)
+    part1(data: data, timeOnly: timeOnly)
+    part2(data: data, timeOnly: timeOnly)
 
 }
