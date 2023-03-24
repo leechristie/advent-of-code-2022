@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2DBB807308FE0CE927AA3C07 /* day04.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB80488323BC1547CD14FE /* day04.swift */; };
 		2DBB8096DC146292FE048864 /* aoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB8177EEE3E34E731DD5DB /* aoc.swift */; };
+		2DBB80C59EA650880100A447 /* day09.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB8BF5756D179EA656BF5E /* day09.swift */; };
 		2DBB80DC01559A8078EC46B0 /* day06.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB809D7C497BC79910E325 /* day06.swift */; };
 		2DBB837D8472BE1AB23700CD /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB8B53674CE3C1CC470047 /* main.swift */; };
 		2DBB867052332D6F2D040EDE /* day02.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBB83AB2CBF5E90251F96B3 /* day02.swift */; };
@@ -40,6 +41,7 @@
 		2DBB878667D60D0EDA4083D5 /* Advent of Code 2015 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "Advent of Code 2015"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DBB8AA119481B0933E9AC60 /* day01.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day01.swift; sourceTree = "<group>"; };
 		2DBB8B53674CE3C1CC470047 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		2DBB8BF5756D179EA656BF5E /* day09.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day09.swift; sourceTree = "<group>"; };
 		2DBB8C327DC00FC225699ABC /* day05.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = day05.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 				2DBB8C327DC00FC225699ABC /* day05.swift */,
 				2DBB809D7C497BC79910E325 /* day06.swift */,
 				2DBB81AA40797D609964E51D /* day21.swift */,
+				2DBB8BF5756D179EA656BF5E /* day09.swift */,
 			);
 			path = "Advent of Code 2015";
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 				2DBB871153D31C0FCF8849B8 /* day05.swift in Sources */,
 				2DBB80DC01559A8078EC46B0 /* day06.swift in Sources */,
 				2DBB8D6EB0DAC9702E1011AC /* day21.swift in Sources */,
+				2DBB80C59EA650880100A447 /* day09.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

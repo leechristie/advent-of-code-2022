@@ -1,3 +1,5 @@
+import Foundation
+
 let PATH = "/Users/0x1ac/GitHub/leechristie/advent-of-code/2015/data"
 
 public func printAOCHeader(year: Int) {
@@ -28,7 +30,9 @@ public func runSolution(day: Int, timeOnly: Bool = false) throws -> Bool {
     case 5:
         try day05(timeOnly: timeOnly)
     case 6:
-        try day06(timeOnly: timeOnly)  // unfinished swift conversion
+        try day06(timeOnly: timeOnly)
+    case 9:
+        try day09(timeOnly: timeOnly)
     case 21:
         try day21(timeOnly: timeOnly)
     default:
@@ -73,4 +77,61 @@ public func loadAOCData(day: Int) throws -> String {
 enum AOCError: Error {
     case unimplemented
     case wrongSolution
+}
+
+class IntMatcher {
+
+    let regex: NSRegularExpression
+    let count: Int
+
+    init(pattern: String) {
+        regex = try! NSRegularExpression(pattern: pattern.replacingOccurrences(of: "*", with: "(\\d+)"), options: [])
+        count = pattern.filter { $0 == "*" }.count
+    }
+
+    func match(string: String) -> [Int] {
+        let matches = regex.matches(in: string, options: [], range: NSRange(location: 0, length: string.utf16.count))
+        assert(matches.count == 1)
+        var rv = [Int]()
+        for index in 1...count {
+            let match: NSRange = matches[0].range(at: index)
+            let range = Range(match, in: string)!
+            rv.append(Int(string[range])!)
+        }
+        return rv
+    }
+
+}
+
+// testing matcher
+//print(IntMatcher(pattern: "*,* through *,*")
+//      .match(string: "68,358 through 857,453"))
+
+private func withoutIndex(arr: [Int], index: Int) -> [Int] {
+    var rv = [Int]()
+    for i in 0..<arr.count {
+        if i != index {
+            rv.append(arr[i])
+        }
+    }
+    return rv
+}
+
+private func permSub(visited: [Int], notVisited: [Int], callback: ([Int]) -> ()) {
+    if notVisited.count < 1 {
+        callback(visited)
+    }
+    for index in 0..<notVisited.count {
+        let newVisited = visited + [notVisited[index]]
+        let newNotVisited = withoutIndex(arr: notVisited, index: index)
+        permSub(visited: newVisited, notVisited: newNotVisited, callback: callback)
+    }
+}
+
+public func forEachPermutation(n: Int, callback: ([Int]) -> ()) {
+    var set = [Int]()
+    for i in 0..<n {
+        set.append(i)
+    }
+    permSub(visited: [Int](), notVisited: set, callback: callback)
 }

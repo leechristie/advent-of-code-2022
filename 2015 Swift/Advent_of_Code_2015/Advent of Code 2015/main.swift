@@ -1,3 +1,5 @@
+import Foundation
+
 printAOCHeader(year: 2015)
 
 print("Choose Day (leave blank to time all)", terminator: ": ")
