@@ -21,18 +21,13 @@ private func part1(data: [(Int, Int, Int)], timeOnly: Bool = false) {
     }
 
     var total_area = 0
-
     for (l, w, h) in data {
-
         let side1 = l * w
         let side2 = w * h
         let side3 = h * l
-
         let surface_area = 2 * side1 + 2 * side2 + 2 * side3
         let slack = min(side1, side2, side3)
-
         total_area += surface_area + slack
-
     }
 
     if !timeOnly {
