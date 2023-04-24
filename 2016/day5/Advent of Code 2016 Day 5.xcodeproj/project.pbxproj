@@ -13,7 +13,7 @@
 		B4EAD40F29F6D7D9002A861B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4EAD40E29F6D7D9002A861B /* Preview Assets.xcassets */; };
 		B4EAD41629F6D9B7002A861B /* Day5ModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EAD41529F6D9B7002A861B /* Day5ModelView.swift */; };
 		B4EAD41829F6DAE2002A861B /* Day5Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EAD41729F6DAE2002A861B /* Day5Model.swift */; };
-		B4EAD41A29F6E3BB002A861B /* Part1Solver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EAD41929F6E3BB002A861B /* Part1Solver.swift */; };
+		B4EAD41A29F6E3BB002A861B /* Solver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EAD41929F6E3BB002A861B /* Solver.swift */; };
 		B4EAD41C29F6E6FE002A861B /* Part2Solver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4EAD41B29F6E6FE002A861B /* Part2Solver.swift */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +25,7 @@
 		B4EAD40E29F6D7D9002A861B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B4EAD41529F6D9B7002A861B /* Day5ModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day5ModelView.swift; sourceTree = "<group>"; };
 		B4EAD41729F6DAE2002A861B /* Day5Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day5Model.swift; sourceTree = "<group>"; };
-		B4EAD41929F6E3BB002A861B /* Part1Solver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part1Solver.swift; sourceTree = "<group>"; };
+		B4EAD41929F6E3BB002A861B /* Solver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Solver.swift; sourceTree = "<group>"; };
 		B4EAD41B29F6E6FE002A861B /* Part2Solver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Part2Solver.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +65,7 @@
 				B4EAD40D29F6D7D9002A861B /* Preview Content */,
 				B4EAD41529F6D9B7002A861B /* Day5ModelView.swift */,
 				B4EAD41729F6DAE2002A861B /* Day5Model.swift */,
-				B4EAD41929F6E3BB002A861B /* Part1Solver.swift */,
+				B4EAD41929F6E3BB002A861B /* Solver.swift */,
 				B4EAD41B29F6E6FE002A861B /* Part2Solver.swift */,
 			);
 			path = "Advent of Code 2016 Day 5";
@@ -154,7 +154,7 @@
 				B4EAD41829F6DAE2002A861B /* Day5Model.swift in Sources */,
 				B4EAD41629F6D9B7002A861B /* Day5ModelView.swift in Sources */,
 				B4EAD41C29F6E6FE002A861B /* Part2Solver.swift in Sources */,
-				B4EAD41A29F6E3BB002A861B /* Part1Solver.swift in Sources */,
+				B4EAD41A29F6E3BB002A861B /* Solver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

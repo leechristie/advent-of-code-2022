@@ -20,14 +20,6 @@ public class Day5ModelView: ObservableObject {
         return String(data.replacing("\n", with: ""))
     }
     
-    public var currentPart1: String {
-        return "TODO 1"
-    }
-    
-    public var currentPart2: String {
-        return "TODO 2"
-    }
-    
     public var pressCount: Int {
         return model.presses
     }
@@ -39,61 +31,49 @@ public class Day5ModelView: ObservableObject {
     private func loadData() {
         do {
             model.data = try loadData(forDay: 5)
+            model.solver = Solver(doorID: model.data!, difficulty: 5)
         } catch {
             model.error = "Data Load Failed"
+            model.solver = nil
         }
     }
     
-    public func solvePart1() async {
+    public func solve() async {
         await MainActor.run {
             loadData()
         }
-        if let data = model.data {
-            let solver = Part1Solver(doorID: data, difficulty: 5)
-            await solver.solvePart1 { position, char in
-                await MainActor.run {
-                    model.part1SolutionSoFar[position] = char
+        if let solver = model.solver {
+            await solver.solve(
+                part1: { position, char, solved in
+                    await MainActor.run {
+                        model.part1SolutionSoFar[position] = char
+                        model.part1Solved = solved
+                    }
+                },
+                part2: { position, char, solved in
+                    await MainActor.run {
+                        model.part2SolutionSoFar[position] = char
+                        model.part2Solved = solved
+                    }
                 }
-            }
+            )
         }
     }
-    
-    public func solvePart2() async {
-        await MainActor.run {
-            loadData()
-        }
-        if let data = model.data {
-            let solver = Part2Solver(doorID: data, difficulty: 5)
-            await solver.solvePart2 { position, char in
-                await MainActor.run {
-                    model.part2SolutionSoFar[position] = char
-                }
-            }
-        }
+        
+    public var part1SolutionSoFar: [Character?] {
+        return model.part1SolutionSoFar
     }
     
-    public var part1SolutionSoFar: String {
-        var rv: String = ""
-        for char in model.part1SolutionSoFar {
-            if let char {
-                rv.append(char)
-            } else {
-                rv += "?"
-            }
-        }
-        return rv
+    public var part2SolutionSoFar: [Character?] {
+        return model.part2SolutionSoFar
     }
     
-    public var part2SolutionSoFar: String {
-        var rv: String = ""
-        for char in model.part2SolutionSoFar {
-            if let char {
-                rv.append(char)
-            } else {
-                rv += "?"
-            }
-        }
-        return rv
+    public var part1Solved: Bool {
+        return model.part1Solved
+    }
+    
+    public var part2Solved: Bool {
+        return model.part2Solved
     }
         
     public var errorText: String {
