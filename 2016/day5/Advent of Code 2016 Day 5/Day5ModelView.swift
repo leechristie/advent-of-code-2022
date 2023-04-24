@@ -11,15 +11,6 @@ public class Day5ModelView: ObservableObject {
     
     @Published var model = Day5Model()
     
-    func loadData(forDay day: Int, test: Bool = false) throws -> String {
-        let dataPath = "/Users/0x1ac/Developer/advent-of-code/2016/data/"
-        let namePrefix = test ? "test" : "input"
-        let fileName = day < 10 ? "\(namePrefix)0\(day).txt" : "\(namePrefix)\(day).txt"
-        let data = try String(contentsOfFile: dataPath + fileName,
-                              encoding: .utf8)
-        return String(data.replacing("\n", with: ""))
-    }
-    
     public var pressCount: Int {
         return model.presses
     }
@@ -29,13 +20,7 @@ public class Day5ModelView: ObservableObject {
     }
     
     private func loadData() {
-        do {
-            model.data = try loadData(forDay: 5)
-            model.solver = Solver(doorID: model.data!, difficulty: 5)
-        } catch {
-            model.error = "Data Load Failed"
-            model.solver = nil
-        }
+        model.solver = Solver(doorID: "reyedfim", difficulty: 5)
     }
     
     public func solve() async {
@@ -46,12 +31,14 @@ public class Day5ModelView: ObservableObject {
             await solver.solve(
                 part1: { position, char, solved in
                     await MainActor.run {
+                        print("Part 1: got char for index \(position)")
                         model.part1SolutionSoFar[position] = char
                         model.part1Solved = solved
                     }
                 },
                 part2: { position, char, solved in
                     await MainActor.run {
+                        print("Part 2: got char for index \(position)")
                         model.part2SolutionSoFar[position] = char
                         model.part2Solved = solved
                     }
@@ -74,30 +61,6 @@ public class Day5ModelView: ObservableObject {
     
     public var part2Solved: Bool {
         return model.part2Solved
-    }
-        
-    public var errorText: String {
-        if let error = model.error {
-            return error
-        } else {
-            return "no error yet"
-        }
-    }
-    
-    public var dataSize: Int {
-        if let data = model.data {
-            return data.count
-        } else {
-            return 0
-        }
-    }
-    
-    public var data: String {
-        if let data = model.data {
-            return data
-        } else {
-            return ""
-        }
     }
     
 }

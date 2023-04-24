@@ -111,6 +111,9 @@ struct Day5View: View {
         }
         .padding(.all)
         .task {
+            await MainActor.run {
+                print(".task started")
+            }
             if !self.disableSolver {
                 await modelView.solve()
             }
@@ -118,6 +121,7 @@ struct Day5View: View {
     }
     
     init(disableSolver: Bool = false) {
+        print("Day5View init")
         self.modelView = Day5ModelView()
         self.disableSolver = disableSolver
     }

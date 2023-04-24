@@ -28,6 +28,10 @@ public class Solver {
     public func solve(part1: (Int, Character, Bool) async -> Void,
                       part2: (Int, Character, Bool) async -> Void) async {
 
+        await MainActor.run {
+            print("starting")
+        }
+        
         let doorID = self.doorID
         
         var result: [Character?] = [nil, nil, nil, nil, nil, nil, nil, nil]
@@ -66,6 +70,10 @@ public class Solver {
             
             nonce += 1
             
+        }
+        
+        await MainActor.run {
+            print("halting solver")
         }
         
     }
