@@ -9,7 +9,7 @@ import Foundation
 
 func loadData(forDay day: Int, test: Bool = false) throws -> String {
     
-    let dataPath = "/Users/0x1ac/Developer/advent-of-code-2016/data/"
+    let dataPath = "/Users/0x1ac/Developer/advent-of-code/2016/data/"
     
     let namePrefix = test ? "test" : "input"
     
