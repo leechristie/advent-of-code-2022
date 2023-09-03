@@ -5,9 +5,22 @@ import java.io.*;
 public final class Day01 {
 
     public static void solve(final Puzzle<Integer> puzzle) throws IOException {
+        Day01 day01 = new Day01(puzzle);
+        day01.solve();
+    }
 
-        // tracks the largest three numbers in descending order
-        int[] most = new int[3];
+    private final Puzzle<Integer> puzzle;
+
+    // tracks the largest three numbers in descending order
+    private int first = 0;
+    private int second = 0;
+    private int third = 0;
+
+    private Day01(final Puzzle<Integer> puzzle) {
+        this.puzzle = puzzle;
+    }
+
+    private void solve() throws IOException {
 
         try (BufferedReader in = new BufferedReader(new FileReader(puzzle.input()))) {
 
@@ -19,7 +32,7 @@ public final class Day01 {
                 if (line.isEmpty()) {
 
                     // update the tracker if we end a block with a blank line
-                    insert(most, current);
+                    insert(current);
                     current = 0;
 
                 } else {
@@ -31,37 +44,36 @@ public final class Day01 {
             }
 
             // update the tracker one more in case the file does not have a trailing blank line
-            insert(most, current);
+            insert(current);
 
         }
 
         // part 1: the highest number, part 2: the sum of the three highest numbers
-        puzzle.check(most[0],
-                     most[0] + most[1] + most[2]);
+        puzzle.check(first,
+                     first + second + third);
 
     }
 
-    private static void insert(final int[] most,
-                               final int current) {
+    private void insert(final int current) {
 
         // replace 3rd highest
-        if (current <= most[2])
+        if (current <= third)
             return;
-        most[2] = current;
+        third = current;
 
         // replace 2nd highest
-        if (most[2] <= most[1])
+        if (third <= second)
             return;
-        int temp = most[1];
-        most[1] = most[2];
-        most[2] = temp;
+        int temp = second;
+        second = third;
+        third = temp;
 
         // replace 1st highest
-        if (most[1] <= most[0])
+        if (second <= first)
             return;
-        temp = most[0];
-        most[0] = most[1];
-        most[1] = temp;
+        temp = first;
+        first = second;
+        second = temp;
 
     }
 
