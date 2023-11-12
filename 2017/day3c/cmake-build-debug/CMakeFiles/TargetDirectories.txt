@@ -1,3 +1,0 @@
-/Users/0x1ac/Developer/advent-of-code/2017/day3c/cmake-build-debug/CMakeFiles/day3c.dir
-/Users/0x1ac/Developer/advent-of-code/2017/day3c/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/0x1ac/Developer/advent-of-code/2017/day3c/cmake-build-debug/CMakeFiles/rebuild_cache.dir

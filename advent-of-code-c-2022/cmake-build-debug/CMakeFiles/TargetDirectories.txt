@@ -1,3 +1,0 @@
-/Users/0x1ac/Developer/leechristie/advent-of-code/advent-of-code-c-2022/cmake-build-debug/CMakeFiles/advent_of_code_c_2022.dir
-/Users/0x1ac/Developer/leechristie/advent-of-code/advent-of-code-c-2022/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/0x1ac/Developer/leechristie/advent-of-code/advent-of-code-c-2022/cmake-build-debug/CMakeFiles/rebuild_cache.dir
