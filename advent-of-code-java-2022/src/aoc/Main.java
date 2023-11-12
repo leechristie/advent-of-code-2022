@@ -10,10 +10,16 @@ public class Main {
         System.out.println();
 
         Day01.solve(new Puzzle<>(1,
-                                 "Calorie Counting",
-                                 new File("data/input01.txt"),
-                                 66719,
-                                 198551));
+                "Calorie Counting",
+                new File("data/input01.txt"),
+                66719,
+                198551));
+
+        Day02.solve(new Puzzle<>(2,
+                "Rock Paper Scissors",
+                new File("data/input02.txt"),
+                13526,
+                14204));
 
     }
 
